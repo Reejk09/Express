@@ -1,9 +1,14 @@
-let loggedIn = false
-let hasValidRole = false
+let loggedIn = true
+let hasValidRole = true
+
 
 
 function checkAuthentication(req,res,next){
     console.log("checkAuthentication");
+
+    req.body = {
+        title : req.body.title
+    }
     if(!loggedIn){
 
         return res.status(401).send()
@@ -12,14 +17,19 @@ function checkAuthentication(req,res,next){
     next()
 
 }
+
 function chechValidRole(req,res,next){
     if(!hasValidRole){
-        res.status(403).send()
+      return  res.status(403).send()
 
     }
     next()
 }
+
+
 module.exports = {
     "checkAuthentication" : checkAuthentication,
-    "chechValidRole" : chechValidRole
+    "chechValidRole" : chechValidRole,
+    
+   
 }
