@@ -82,3 +82,9 @@ db.testDb.insertMany([
 ])
 db.testDb.find({$or:[{email:"greg_powell@fake-mail.com"},{email:"no_name@fake-mail.com"}]})
 db.testDb.find({$and:[{email:"greg_powell@fake-mail.com"},{email:"noo_name@fake-mail.com"}]})
+db.testDb.insertMany([
+  { "item": "Pens", "quantity": 350, "tags": [ "school", "office" ] },
+  { "item": "Erasers", "quantity": 15, "tags": [ "school", "home" ] },
+  { "item": "Maps", "tags": [ "office", "storage" ] },
+  { "item": "Books", "quantity": 5, "tags": [ "school", "storage", "home" ] }
+])
